@@ -1,1 +1,60 @@
-<p>data works!</p>
+<section>
+  <div class="row m-0 pt-5">
+    <div class="col-xl-3  p-0">
+
+    </div>
+    <div class="col-xl-6 box p-2">
+      <div class="row m-1">
+        <div class="col-sm-3  d-flex align-items-end">
+
+          <!-- <label for="floatingSelect">Search by</label> -->
+          <select class="form-select fw-bold" id="floatingSelect" (change)="optionChange(selectType,inputText)"
+            aria-label="Floating label select example" #selectType>
+            <option  selected value="default">Select</option>
+            <option class="fw-bold" value="branchId"> Branch ID </option>
+            <option class="fw-bold" value="branchName"> Branch Name</option>
+            <option class="fw-bold" value="places"> Places</option>
+          </select>
+        </div>
+
+        <div class="col-sm-7  pt-1 d-flex justify-content-center ">
+          <input type="text" placeholder="Type here" class="w-100 inputbox" name="name" id="name" #inputText>
+        </div>
+        <div class="col-sm-1  pt-1 ps-0  d-flex align-items-end">
+          <button class="btn" (click)="search()">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3  p-0">
+
+    </div>
+  </div>
+</section>
+<section class="p-5">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="heading curve1" scope="col">Branch ID</th>
+        <th class="heading" scope="col">Branch Name</th>
+        <th class="heading" scope="col">Website</th>
+        <th class="heading" scope="col">Contact</th>
+        <th class="heading" scope="col">Email</th>
+        <th class=" heading curve2  " scope="col">Places</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let data of this.requestService.dataFromBackend.value">
+        <td>{{data.branchId}} </td>
+        <td>{{data.branchName}} </td>
+        <td>{{data.website}} </td>
+        <td>{{data.contactNo}} </td>
+        <td>{{data.email}} </td>
+        <td>
+          <div *ngFor="let places of data.places">
+            {{places.name}} - {{places.rate}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RequestService } from './request.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'touristApp';
+  name = 'name here';
+  constructor(public requestService:RequestService){
+
+  }
+  logout = () => {
+    this.requestService.loginCheck.next(0);
+    this.requestService.logout().subscribe({
+      next:(res:any)=>{
+        console.log(res);
+      },
+      error:(err)=>{
+        console.log("error",err);
+      }
+    })
+  }
 }
