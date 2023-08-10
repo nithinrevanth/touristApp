@@ -1,0 +1,23 @@
+<section>
+  <div class="header p-2">
+    <div class="row m-0 p-0">
+      <div class="col-sm-3  px-0 fw-bold text-center ">
+        <div class="name fw-bold pt-1">
+          Tourist management App
+        </div>
+      </div>
+      <div class="col-sm-8 px-0 text-end">
+        <div *ngIf="this.requestService.loginCheck.value == 1" class="name fw-bold">
+          {{name}} <span class="ps-2"> <button class="btn btn-danger" (click)="logout()"> Logout</button></span>
+        </div>
+      </div>
+      <div class="col-sm-1">
+
+      </div>
+    </div>
+
+  </div>
+  <div class="row m-0 p-0 ">
+    <app-home class="p-0"></app-home>
+  </div>
+</section>

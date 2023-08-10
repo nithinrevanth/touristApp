@@ -1,1 +1,51 @@
-<p>login works!</p>
+<section class="vh-100 ">
+  <div class="container py-5 h-100  ">
+      <div class="row d-flex align-items-start justify-content-center h-100 px-2 ">
+          <div class="col-12 col-md-7 col-lg-5 col-xl-5 shadow-lg p-4 " data-aos="fade-right" data-aos-delay="500">
+              <h1 class="text-center fw-bold Login ">LOGIN</h1>
+              <form [formGroup]="userLogin" #ref="ngForm" (ngSubmit)="ref.valid && loginFormSubmit()">
+
+                  <!-- username input -->
+                  <div class="form-floating mb-4">
+                      <input type="text" id="Username" class="form-control" placeholder="Username"
+                          formControlName="username">
+                      <label class="form-label" for="Username">Username</label>
+                      <div>
+                          <div *ngIf="username.invalid && username.touched  || username.invalid && ref.submitted">
+                              <p *ngIf="username.errors?.['required'] " class="validation"> *username is
+                                  required</p>
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Password input -->
+                  <div class="form-floating mb-4">
+                      <input type="Password" id="Password" class="form-control" placeholder="Password"
+                          formControlName="password">
+                      <label class="form-label" for="Password">Password</label>
+                      <div>
+                          <div *ngIf="password.invalid && password.touched  || password.invalid && ref.submitted">
+                              <p *ngIf="password.errors?.['required'] " class="validation"> *Password is
+                                  required</p>
+
+                          </div>
+                      </div>
+
+                      <div>
+                          <p *ngIf="message == true " class="validation"> *Invalid Credentials</p>
+                      </div>
+                  </div>
+
+                  <!-- Submit button -->
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary mx-auto">Login</button>
+
+                  </div>
+
+              </form>
+
+          </div>
+      </div>
+  </div>
+</section>
