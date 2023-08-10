@@ -12,15 +12,15 @@ export class DataComponent implements OnInit {
   ngOnInit(): void {
   }
   search(selectType,inputText){
-    console.log("sfsfsd",selectType.value,inputText.value);
+    console.log(selectType.value,inputText.value);
 
     this.requestService.search(selectType.value,inputText.value).subscribe({
       next: (res: any) => {
         console.log("res is ", res);
         this.requestService.dataFromBackend.next(res.branchDetails);
       },
-      error: (err) => {
-        console.log("error is ", err);
+      error: (err:any) => {
+        console.log("error in search");
         this.requestService.dataFromBackend.next([]);
       }
     })
