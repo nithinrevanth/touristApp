@@ -13,7 +13,7 @@
             <option  selected value="default">Select</option>
             <option class="fw-bold" value="branchId"> Branch ID </option>
             <option class="fw-bold" value="branchName"> Branch Name</option>
-            <option class="fw-bold" value="places"> Places</option>
+            <option class="fw-bold" value="place"> Places</option>
           </select>
         </div>
 
@@ -21,7 +21,7 @@
           <input type="text" placeholder="Type here" class="w-100 inputbox" name="name" id="name" #inputText>
         </div>
         <div class="col-sm-1  pt-1 ps-0  d-flex align-items-end">
-          <button class="btn" (click)="search()">Search</button>
+          <button class="btn" (click)="search(selectType,inputText)">Search</button>
         </div>
       </div>
     </div>

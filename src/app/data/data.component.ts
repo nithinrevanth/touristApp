@@ -7,18 +7,27 @@ import { RequestService } from '../request.service';
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-
   constructor(public requestService:RequestService) { }
 
   ngOnInit(): void {
   }
-  search(){
+  search(selectType,inputText){
+    console.log("sfsfsd",selectType.value,inputText.value);
 
+    this.requestService.search(selectType.value,inputText.value).subscribe({
+      next: (res: any) => {
+        console.log("res is ", res);
+        this.requestService.dataFromBackend.next(res.branchDetails);
+      },
+      error: (err) => {
+        console.log("error is ", err);
+        this.requestService.dataFromBackend.next([]);
+      }
+    })
   }
   optionChange(selectType,inputText){
     console.log(selectType.value);
     inputText.value = '';
-
   }
 
 }

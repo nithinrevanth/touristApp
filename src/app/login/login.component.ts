@@ -27,15 +27,15 @@ export class LoginComponent implements OnInit {
       next: (res: any) => {
         console.log("res is ", res);
         //if its user,then login success,
-        if (res.message == "invalid password") {
+        if (res.message == "invalid id and password") {
           this.message = true;
         }
-        if (res.message == "login success") {
+        if (res.message == "jwt-token-message to validate") {
           console.log("login success");
           this.requestService.loginStatus = true;
           //local storage
           localStorage.setItem("token", res.token);
-          this.routerObj.navigateByUrl(`data`);
+          this.routerObj.navigateByUrl(`tourism/api/v1/admin`);
         }
       },
       error: (err) => {

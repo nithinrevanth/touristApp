@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RequestService {
-  baseLink = "http://localhost:4200";
+  baseLink = "http://localhost:8000";
   loginCheck = new BehaviorSubject(0);
   loginStatus: boolean = false;
   dataFromBackend = new BehaviorSubject([
@@ -71,9 +71,13 @@ export class RequestService {
   ]);
   constructor(public httpClient: HttpClient) { }
   loginUser(userObj: any): Observable<any> {
-    return this.httpClient.post(this.baseLink + '/login', userObj);
+    return this.httpClient.post(this.baseLink + '/tourism-management-server/api/v1/user/login', userObj);
+  }
+  // tourism-management-processor/tourism/
+  search(criteria,value): Observable<any> {
+    return this.httpClient.get(this.baseLink + '/tourism-management-processor/tourism/'+criteria+"/"+value);
   }
   logout(): Observable<any> {
-    return this.httpClient.get(this.baseLink + '/logout');
+    return this.httpClient.get(this.baseLink + '/tourism-management-server/api/v1/user/logout');
   }
 }

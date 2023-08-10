@@ -5,10 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { DataComponent } from './data/data.component';
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent }, 
-  { path: "data", component: DataComponent },
+  { path: "tourism/api/v1/login", component: LoginComponent },
+  { path: "tourism/api/v1/admin", component: DataComponent },
   // Empty path
-  {path:"",redirectTo:"login",pathMatch:"full"},
+  {path:"",redirectTo:"tourism/api/v1/login",pathMatch:"full"},
   // Invalidpath
   {path:"**",component:NopageComponent}
 ];
