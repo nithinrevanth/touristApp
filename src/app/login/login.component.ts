@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         }
         if (res.message == "jwt-token-message to validate") {
           console.log("login success");
-          this.requestService.loginStatus = true;
+          this.requestService.loginCheck.next(1);
           //local storage
           localStorage.setItem("token", res.token);
           this.routerObj.navigateByUrl(`tourism/api/v1/admin`);

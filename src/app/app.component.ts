@@ -9,18 +9,19 @@ import { RequestService } from './request.service';
 export class AppComponent {
   title = 'touristApp';
   name = 'name here';
-  constructor(public requestService:RequestService){
+  constructor(public requestService: RequestService) {
 
   }
   logout = () => {
     this.requestService.loginCheck.next(0);
-    this.requestService.logout().subscribe({
-      next:(res:any)=>{
-        console.log(res);
-      },
-      error:(err)=>{
-        console.log("error",err);
-      }
-    })
+    localStorage.setItem("token", "");
+    // this.requestService.logout().subscribe({
+    //   next:(res:any)=>{
+    //     console.log(res);
+    //   },
+    //   error:(err)=>{
+    //     console.log("error",err);
+    //   }
+    // })
   }
 }
