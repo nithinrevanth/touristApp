@@ -7,12 +7,12 @@
 
                   <!-- username input -->
                   <div class="form-floating mb-4">
-                      <input type="text" id="Username" class="form-control" placeholder="Username"
-                          formControlName="username">
-                      <label class="form-label" for="Username">Username</label>
+                      <input type="text" id="userName" class="form-control" placeholder="Username"
+                          formControlName="userName">
+                      <label class="form-label" for="userName">Username</label>
                       <div>
-                          <div *ngIf="username.invalid && username.touched  || username.invalid && ref.submitted">
-                              <p *ngIf="username.errors?.['required'] " class="validation"> *username is
+                          <div *ngIf="userName.invalid && userName.touched  || userName.invalid && ref.submitted">
+                              <p *ngIf="userName.errors?.['required'] " class="validation"> *userName is
                                   required</p>
 
                           </div>
